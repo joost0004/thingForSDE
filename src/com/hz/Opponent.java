@@ -1,7 +1,12 @@
 package com.hz;
 
+import strategy.moveStrategy;
+import strategy.rps;
+import strategy.higherlower;
+
 public final class Opponent {
     private static Opponent instance;
+    private moveStrategy strategy;
 
     public String gameMode;
     public ConsoleWriter writer = new ConsoleWriter();
@@ -21,6 +26,17 @@ public final class Opponent {
             this.setGameMode();
         }
 
+        switch (gameMode) {
+            case "Higher/Lower" -> strategy = new rps();
+            case "Rock Paper Scissors" -> strategy = new higherlower();
+        }
+
         writer.write("You chose " + gameMode);
     }
+
+    public void playGame(Opponent opponent) {
+        strategy.compare(opponent);
+    }
+
+
 }

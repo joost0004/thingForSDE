@@ -8,5 +8,7 @@ public class Main {
         Opponent opponent = new Opponent();
 
         opponent.setGameMode();
+
+        opponent.playGame(opponent);
     }
 }
