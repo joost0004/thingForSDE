@@ -10,6 +10,11 @@ public class higherlower implements moveStrategy{
     int newNumber = 7;
 
     @Override
+    public void requestInput(Opponent opponent) {
+
+    }
+
+    @Override
     public void reply(Opponent opponent) {
         opponent.writer.write("The number was " + newNumber + "! You " + gameState + "! Please enter a new number between 1-10!");
     }

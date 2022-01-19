@@ -1,6 +1,6 @@
 package com.hz;
 
-class GenerateRandom {
+public class GenerateRandom {
     public static void main( String args[] ) {
         int min = 1;
         int max = 3;
@@ -20,5 +20,13 @@ class GenerateRandom {
         else if (Integer.toString(random_int).equals("3")) {
             writer.write("Scissors!");
         }
+    }
+
+    public int generateRPS() {
+        int min = 1;
+        int max = 3;
+
+        //Generate random int value from 50 to 100
+        return (int)Math.floor(Math.random()*(max-min+1)+min);
     }
 }

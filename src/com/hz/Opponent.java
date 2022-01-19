@@ -9,6 +9,9 @@ public final class Opponent {
     private moveStrategy strategy;
 
     public String gameMode;
+    public int amountOfWins = 0;
+    private int amountOfLosses;
+
     public ConsoleWriter writer = new ConsoleWriter();
     public ConsoleReader reader = new ConsoleReader();
 
@@ -35,8 +38,21 @@ public final class Opponent {
     }
 
     public void playGame(Opponent opponent) {
+        strategy.requestInput(opponent);
         strategy.compare(opponent);
         strategy.reply(opponent);
+    }
+
+    public void addWin() {
+        amountOfWins += 1;
+    }
+
+    public void addLoss() {
+        amountOfLosses += 1;
+
+        if (amountOfLosses == 3) {
+            writer.write("Game over. You won " + amountOfWins + "times.");
+        }
     }
 
 
