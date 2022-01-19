@@ -26,7 +26,15 @@ public class GenerateRandom {
         int min = 1;
         int max = 3;
 
-        //Generate random int value from 50 to 100
+        //Generate random int value from 1 to 3
+        return (int)Math.floor(Math.random()*(max-min+1)+min);
+    }
+
+    public int generateHigherLower() {
+        int min = 1;
+        int max = 10;
+
+        //Generate random int value from 1 to 10
         return (int)Math.floor(Math.random()*(max-min+1)+min);
     }
 }
