@@ -27,8 +27,8 @@ public final class Opponent {
         }
 
         switch (gameMode) {
-            case "Higher/Lower" -> strategy = new rps();
-            case "Rock Paper Scissors" -> strategy = new higherlower();
+            case "Higher/Lower" -> strategy = new higherlower();
+            case "Rock Paper Scissors" -> strategy = new rps();
         }
 
         writer.write("You chose " + gameMode);
@@ -36,6 +36,7 @@ public final class Opponent {
 
     public void playGame(Opponent opponent) {
         strategy.compare(opponent);
+        strategy.reply(opponent);
     }
 
 
