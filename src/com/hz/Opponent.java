@@ -38,9 +38,11 @@ public final class Opponent {
     }
 
     public void playGame(Opponent opponent) {
-        strategy.requestInput(opponent);
-        strategy.compare(opponent);
-        strategy.reply(opponent);
+        while (amountOfLosses < 3) {
+            strategy.requestInput(opponent);
+            strategy.compare(opponent);
+            strategy.reply(opponent);
+        }
     }
 
     public void addWin() {
@@ -51,7 +53,7 @@ public final class Opponent {
         amountOfLosses += 1;
 
         if (amountOfLosses == 3) {
-            writer.write("Game over. You won " + amountOfWins + "times.");
+            writer.write("Game over. You won " + amountOfWins + " times.");
         }
     }
 

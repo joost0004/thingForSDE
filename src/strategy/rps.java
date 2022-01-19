@@ -33,11 +33,12 @@ public class rps implements moveStrategy {
             choice = "scissors";
         }
 
-        opponent.writer.write("The opponent chose " + choice + " and you chose" + playerChoice + "! You " + gameState + "! Please choose rock(1), paper(2), scissors(3)!");
+        opponent.writer.write("The opponent chose " + choice + "! You " + gameState + "!");
     }
 
     @Override
     public void compare(Opponent opponent) {
+        compChoice = generator.generateRPS();
 
         if (compChoice == 1 && playerChoice == 2) {
             gameState = "win";
@@ -61,5 +62,6 @@ public class rps implements moveStrategy {
         if (gameState == "lose") {
             opponent.addLoss();
         }
+
     }
 }
